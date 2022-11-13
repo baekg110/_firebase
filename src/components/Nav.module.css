@@ -19,7 +19,12 @@
     text-decoration: none;
 }
 
+.nav strong {
+    color: #fff;
+}
+
 .nav button {
+    margin-left: 12px;
     padding: 6px 12px;
     border-radius: 10px;
     background-color: #fff;
