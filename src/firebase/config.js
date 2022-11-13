@@ -1,7 +1,7 @@
 // 계정과 관련되어 있는 firebase 설정내용
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore, Timestamp } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,5 +17,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const appAuth = getAuth();
 const appFireStore = getFirestore(app);
+const timestamp = Timestamp;
 
-export { appAuth, appFireStore };
+export { appAuth, appFireStore, timestamp };
