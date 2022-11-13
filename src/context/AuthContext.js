@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer } from 'react';
 
 // context 객체 생성
 const AuthContext = createContext();
@@ -7,8 +7,10 @@ const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
     const authReducer = (state, action) => {
         switch (action.type) {
-            case "login":
+            case 'login':
                 return { ...state, user: action.payload };
+            case 'logout':
+                return { ...state, user: null };
             default:
                 return state;
         }
@@ -19,7 +21,7 @@ const AuthContextProvider = ({ children }) => {
         // authReducer는 state값을 변경할 수 있다.
         user: null,
     });
-    console.log("user state : ", state);
+    console.log('user state : ', state);
     return (
         <AuthContext.Provider value={{ ...state, dispatch }}>
             {/* 회원정보가 없데이트 될 때마다 state를 변경 */}
