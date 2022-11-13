@@ -38,7 +38,7 @@ export const useFirestore = (transaction) => {
 
         //통신이기 때문에 오류제어
         try {
-            const createdTime = timestamp.fromData(new Date());
+            const createdTime = timestamp.fromDate(new Date());
             const docRef = await addDoc(colRef, { ...doc, createdTime });
             console.log(docRef);
             dispatch({ type: 'addDoc', payload: docRef });

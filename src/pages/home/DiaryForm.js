@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useFirestore } from '../../hooks/useFirestore';
 
-export default function DiaryForm() {
+export default function DiaryForm(uid) {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
+    const { addDocument, response } = useFirestore('diary'); // diary 컬렉션
 
     const handleData = (event) => {
         if (event.target.id === 'tit') {
@@ -14,7 +16,8 @@ export default function DiaryForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(title, text);
+        // console.log(title, text);
+        addDocument({ uid, title, text });
     };
 
     return (
